@@ -1,21 +1,19 @@
 const input = document.querySelector("input");
 const result = document.getElementById("result");
 const submit = document.getElementById("submit")
-
-addEventListener("click", myFunction);
+submit.addEventListener("click", myFunction);
 
 function myFunction() {
-    let number = input.value
-
-    //let rounded = (Math.round(number * 100) / 100).toFixed(2);
-
-    let sum = 273.15 + +number
-    let roundedSum = (Math.round(sum * 100) / 100).toFixed(2);
-    let output = isNaN(roundedSum) ? "wpisz liczbę" : roundedSum
-    return result.textContent = output
+    const number = input.value
+    const commaRemoved = number.replace(',', '.');
+    const sum = 273.15 + +commaRemoved
+    const roundedSum = (Math.round(sum * 100) / 100).toFixed(2);
+    const output = isNaN(roundedSum) ? "wpisz liczbę" : roundedSum
+    const outputString = output.toString();
+    const dotRemoved = outputString.replace('.', ',');
+    return result.textContent = dotRemoved
 }
-
-
+/* EXPLANATION WHY I USED CONVERSION FROM COMAS TO DOTS AND FROM DOTS TO COMMAS: IN POLAND WE USE COMMAS INSTEAD OF DOTS WHEN WE WRITE NUMBERS*/
 
 
 
@@ -23,13 +21,13 @@ function myFunction() {
 
     0.55555 * 100 = 55.555
     Math.Round(55.555) -> 56.000
-    56.000 / 100 = 0.56000
+    56.000 / 100 = 0.56000a
     (0.56000).toFixed(2) -> 0.56
 
     and this is the code:
      var rounded = (Math.round(number * 100) / 100).toFixed(2);
 
-
+-----
 
       if (isNaN(rounded)) {
         console.log("niejest")
