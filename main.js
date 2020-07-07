@@ -21,7 +21,7 @@ function myFunction() {
 
     0.55555 * 100 = 55.555
     Math.Round(55.555) -> 56.000
-    56.000 / 100 = 0.56000a
+    56.000 / 100 = 0.56000
     (0.56000).toFixed(2) -> 0.56
 
     and this is the code:
